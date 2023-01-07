@@ -10,7 +10,7 @@
     <script src="JS/Custom.js" type="text/javascript"></script>
 </head>
 <body>
-<jsp:include page="Layout/Header.jsp" />
+<jsp:include page="Layout/Header.jsp"/>
 <h2>Hello World!</h2>
 <h2>Hello World!</h2>
 <h2>Hello World!</h2>

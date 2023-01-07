@@ -20,7 +20,7 @@ public class Order
     private String status;
     private int number;
     
-    public Order(final String id, final String username, final String payment, final String ship, final String fullname, final String phone, final String address, final int total, final Date date, final int totalship, final String comment, final String status, final int number, final Time time) {
+    public Order(String id, String username, String payment, String ship, String fullname, String phone, String address, int total, Date date, int totalship, String comment, String status, int number, Time time) {
         this.id = id;
         this.username = username;
         this.payment = payment;
@@ -41,7 +41,7 @@ public class Order
         return this.time;
     }
     
-    public void setTime(final Time time) {
+    public void setTime(Time time) {
         this.time = time;
     }
     
@@ -49,7 +49,7 @@ public class Order
         return this.number;
     }
     
-    public void setNumber(final int number) {
+    public void setNumber(int number) {
         this.number = number;
     }
     
@@ -57,7 +57,7 @@ public class Order
         return this.totalship;
     }
     
-    public void setTotalship(final int totalship) {
+    public void setTotalship(int totalship) {
         this.totalship = totalship;
     }
     
@@ -65,7 +65,7 @@ public class Order
         return this.comment;
     }
     
-    public void setComment(final String comment) {
+    public void setComment(String comment) {
         this.comment = comment;
     }
     
@@ -73,7 +73,7 @@ public class Order
         return this.status;
     }
     
-    public void setStatus(final String status) {
+    public void setStatus(String status) {
         this.status = status;
     }
     
@@ -81,7 +81,7 @@ public class Order
         return this.id;
     }
     
-    public void setId(final String id) {
+    public void setId(String id) {
         this.id = id;
     }
     
@@ -89,7 +89,7 @@ public class Order
         return this.username;
     }
     
-    public void setUsername(final String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
     
@@ -97,7 +97,7 @@ public class Order
         return this.payment;
     }
     
-    public void setPayment(final String payment) {
+    public void setPayment(String payment) {
         this.payment = payment;
     }
     
@@ -105,7 +105,7 @@ public class Order
         return this.ship;
     }
     
-    public void setShip(final String ship) {
+    public void setShip(String ship) {
         this.ship = ship;
     }
     
@@ -113,7 +113,7 @@ public class Order
         return this.fullname;
     }
     
-    public void setFullname(final String fullname) {
+    public void setFullname(String fullname) {
         this.fullname = fullname;
     }
     
@@ -121,7 +121,7 @@ public class Order
         return this.phone;
     }
     
-    public void setPhone(final String phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
     
@@ -129,7 +129,7 @@ public class Order
         return this.address;
     }
     
-    public void setAddress(final String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
     
@@ -137,7 +137,7 @@ public class Order
         return this.total;
     }
     
-    public void setTotal(final int total) {
+    public void setTotal(int total) {
         this.total = total;
     }
     
@@ -145,7 +145,7 @@ public class Order
         return this.date;
     }
     
-    public void setDate(final Date date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }

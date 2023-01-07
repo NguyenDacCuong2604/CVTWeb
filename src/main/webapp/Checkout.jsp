@@ -39,7 +39,7 @@
                   tên</label>
                 <div class="col-sm-10">
                   <input type="text" name="fullname" value="" placeholder="Họ và tên"
-                         id="input-lastname" class="form-control">
+                         id="input-lastname" class="form-control" required>
                 </div>
               </div>
               <div class="form-group required">
@@ -48,23 +48,23 @@
                 <div class="col-sm-10">
                   <input type="tel" name="phone" value=""
                          placeholder="Số điện thoại" id="input-address-1"
-                         class="form-control">
+                         class="form-control" required>
                 </div>
               </div>
               <div class="form-group required">
-                <label class="col-sm-2 control-label">Tỉnh/Thành Phố</label>
+                <label class="col-sm-2 control-label">Tỉnh/TP</label>
                 <div class="col-sm-10">
                   <select class="form-select form-select-sm mb-3 form-control"
-                          id="city" aria-label=".form-select-sm" name="tinhthanh">
+                          id="city" aria-label=".form-select-sm" name="tinhthanh" required>
                     <option value="" selected>Chọn tỉnh thành</option>
                   </select>
                 </div>
               </div>
               <div class="form-group required">
-                <label class="col-sm-2 control-label" >Quận/Huyện</label>
+                <label class="col-sm-2 control-label">Quận/Huyện</label>
                 <div class="col-sm-10">
                   <select class="form-select form-select-sm mb-3 form-control"
-                          id="district" aria-label=".form-select-sm" name="quanhuyen">
+                          id="district" aria-label=".form-select-sm" name="quanhuyen" required>
                     <option value=""  selected>Chọn quận huyện</option>
                   </select>
                 </div>
@@ -73,7 +73,7 @@
                 <label class="col-sm-2 control-label">Phường/Xã</label>
                 <div class="col-sm-10">
                   <select class="form-select form-select-sm form-control" id="ward"
-                          aria-label=".form-select-sm" name="phuongxa">
+                          aria-label=".form-select-sm" name="phuongxa" required>
                     <option value="" selected>Chọn phường xã</option>
                   </select>
                 </div>
@@ -83,7 +83,7 @@
                   thể</label>
                 <div class="col-sm-10">
                   <input type="text" name="address_detail" value="" placeholder="Địa chỉ"
-                         id="" class="form-control">
+                         id="" class="form-control" required>
                 </div>
               </div>
             </fieldset>

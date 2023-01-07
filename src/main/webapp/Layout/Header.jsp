@@ -4,8 +4,7 @@
 <%@ page import="Dao.ProductDao" %>
 <%@ page import="Entity.Product" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% Cart cart = (Cart) request.getSession().getAttribute("cart"); %>
+<% Cart cart = (Cart)  request.getSession().getAttribute("cart"); %>
 <div class="page-loader">
     <div class="home-loader">
         <div class="loader-spinner"></div>
@@ -45,7 +44,7 @@
                         <li><a href="MyAccount.jsp">Tài khoản của tôi</a></li>
                         <li><a href="Cart">Giỏ hàng của tôi</a></li>
                         <li><a href="HistoryOrder">Lịch sử đơn hàng</a></li>
-                        <li><a href="LogOutController">Đăng xuất</a></li>
+                        <li><a href="LogOut">Đăng xuất</a></li>
                     </ul>
                     <%}%>
 

@@ -11,6 +11,12 @@
 </head>
 <body>
   <jsp:include page="Layout/Header.jsp" />
+  <% String mess = (String)request.getAttribute("mess");
+    if(mess!=null){ %>
+  <script>
+    alert("<%=mess%>");
+  </script>
+  <% } %>
   <div id="myaccount" class="container">
     <ul class="breadcrumb">
       <li><a href="index.jsp"><i class="fa fa-home"></i></a></li>
@@ -21,25 +27,25 @@
       <jsp:include page="/Layout/MenuBarAccount.jsp" />
       <div id="content" class="col-sm-9">
         <h1 class="page_title">Thay đổi mật khẩu</h1>
-        <form action="ChangePassword" method="post"class="form-horizontal">
+        <form action="ChangePassword" method="post"class="form-horizontal" name="form1" onsubmit="return validation()">
           <fieldset>
             <legend>Mật khẩu của bạn</legend>
             <div class="form-group required">
               <label class="col-sm-2 control-label" for="input-password">Mật khẩu cũ</label>
               <div class="col-sm-10">
-                <input type="password" name="password" value="" placeholder="Mật khẩu cũ" id="input-password" class="form-control">
+                <input type="password" name="password" value="" placeholder="Mật khẩu cũ" id="input-password" class="form-control" required>
               </div>
             </div>
             <div class="form-group required">
               <label class="col-sm-2 control-label" for="input-password">Mật khẩu mới</label>
               <div class="col-sm-10">
-                <input type="password" name="newpassword" value="" placeholder="Mật khẩu mới" id="input-newpassword" class="form-control">
+                <input type="password" name="newpassword" value="" placeholder="Mật khẩu mới" id="input-newpassword" class="form-control" required>
               </div>
             </div>
             <div class="form-group required">
               <label class="col-sm-2 control-label" for="input-confirm">Xác nhận mật khẩu</label>
               <div class="col-sm-10">
-                <input type="password" name="confirm" value="" placeholder="Xác nhận mật khẩu" id="input-confirm" class="form-control">
+                <input type="password" name="confirm" value="" placeholder="Xác nhận mật khẩu" id="input-confirm" class="form-control" required>
               </div>
             </div>
           </fieldset>
@@ -54,5 +60,33 @@
     </div>
   </div>
     <jsp:include page="/Layout/Footer.jsp" />
+  <script>
+
+    function validation() {
+      var pass = document.form1.password.value;
+      var pass2 = document.form1.newpassword.value;
+      var pass3 = document.form1.confirm.value;
+      var passold = document.getElementById("input-password")
+      var passnew = document.getElementById("input-newpassword")
+      var passComfirm = document.getElementById("input-confirm")
+
+
+      if (pass.length < 6) {
+        alert("Mật khẩu phải có từ 6 ký tự trở lên")
+        passold.style.border = "1px solid red";
+        return false;
+        if (pass2.length < 6) {
+          passnew.style.border = "1px solid red";
+          return false;
+        }
+          if (pass3.length < 6) {
+            passComfirm.style.border = "1px solid red";
+            return false;
+          }
+          if (pass.length >= 6 && pass2 >= 6 && pass3 >= 6) return true;
+        }
+      }
+
+  </script>
 </body>
 </html>

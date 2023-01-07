@@ -7,18 +7,17 @@ package Control;
 
 import Dao.OrderDao;
 import Entity.Account;
+import Entity.ProductOrder;
+
 import java.io.IOException;
 import java.sql.SQLException;
-import javax.servlet.RequestDispatcher;
+import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
+@WebServlet(name = "OrderDetailController", value = { "/OrderDetail" })
 public class OrderDetailController extends HttpServlet
 {
-
-    public OrderDetailController()
-    {
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException
@@ -34,16 +33,12 @@ public class OrderDetailController extends HttpServlet
         try
         {
             Entity.Order order = dao.getOrder(id_order);
-            java.util.List list = dao.getProductsOrder(id_order);
+            List<ProductOrder> list = dao.getProductsOrder(id_order);
             request.setAttribute("order", order);
             request.setAttribute("orderdetail", list);
             request.getRequestDispatcher("Orderdetail.jsp").forward(request, response);
         }
-        catch(SQLException e)
-        {
-            throw new RuntimeException(e);
-        }
-        catch(ClassNotFoundException e)
+        catch(SQLException | ClassNotFoundException e)
         {
             throw new RuntimeException(e);
         }

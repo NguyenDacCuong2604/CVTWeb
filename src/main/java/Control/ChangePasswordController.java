@@ -11,8 +11,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
+@WebServlet(name="ChangePasswordController", value={"/ChangePassword"})
 public class ChangePasswordController extends HttpServlet
 {
 
@@ -45,22 +47,21 @@ public class ChangePasswordController extends HttpServlet
                 try
                 {
                     AccountDao.updatePassword(account);
+                    request.setAttribute("mess", "Đổi mật khẩu thành công");
                     request.getRequestDispatcher("MyAccount.jsp").forward(request, response);
                 }
-                catch(SQLException e)
-                {
-                    throw new RuntimeException(e);
-                }
-                catch(ClassNotFoundException e)
+                catch(SQLException | ClassNotFoundException e)
                 {
                     throw new RuntimeException(e);
                 }
             } else
             {
+                request.setAttribute("mess", "Mật khẩu không trùng khớp");
                 request.getRequestDispatcher("Changepassword.jsp").forward(request, response);
             }
         } else
         {
+            request.setAttribute("mess", "Mật khẩu sai");
             request.getRequestDispatcher("Changepassword.jsp").forward(request, response);
         }
     }

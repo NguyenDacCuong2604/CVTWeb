@@ -60,7 +60,7 @@
                       <td class="text-left">
                         <div class="input-group btn-block" style="max-width: 200px;">
                           <input type="number" name="quantity" value="<%=cart.getCart().get(id)%>" min="1" size="1"
-                                 class="form-control" >
+                                 class="form-control" style="width:70px">
                           <span class="input-group-btn">
 												<button type="submit" data-toggle="tooltip" title=""
                                                         class="btn btn-danger" data-original-title="Update"

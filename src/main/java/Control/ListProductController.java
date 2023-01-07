@@ -12,14 +12,12 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
+@WebServlet(name = "ListProductController", value = { "/ListProduct" })
 public class ListProductController extends HttpServlet
 {
 
-    public ListProductController()
-    {
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException
@@ -33,34 +31,29 @@ public class ListProductController extends HttpServlet
             if(cateId == null)
             {
                 list = dao.getAllProducts();
-                category = "Danh s\341ch s\u1EA3n ph\u1EA9m";
+                category = "Danh sách sản phẩm";
             } else
             if(cateId.equals("thatlung"))
             {
                 list = dao.getAllProducts(3);
-                category = "Th\u1EAFt l\u01B0ng nam";
+                category = "Thắt lưng nam";
             } else
             if(cateId.equals("matthatlung"))
             {
                 list = dao.getAllProducts(2);
-                category = "M\u1EB7t th\u1EAFt l\u01B0ng";
+                category = "Mặt thắt lưng";
             } else
             if(cateId.equals("daythatlung"))
             {
                 list = dao.getAllProducts(1);
-                category = "D\342y th\u1EAFt l\u01B0ng";
+                category = "Dây thắt lưng";
             }
             request.setAttribute("list", list);
             request.setAttribute("category", category);
             request.setAttribute("id", cateId);
-            System.out.println(cateId);
             request.getRequestDispatcher("ListProduct.jsp").forward(request, response);
         }
-        catch(SQLException e)
-        {
-            throw new RuntimeException(e);
-        }
-        catch(ClassNotFoundException e)
+        catch(SQLException | ClassNotFoundException e)
         {
             throw new RuntimeException(e);
         }

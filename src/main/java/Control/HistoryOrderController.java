@@ -7,18 +7,17 @@ package Control;
 
 import Dao.OrderDao;
 import Entity.Account;
+import Entity.Order;
+
 import java.io.IOException;
 import java.sql.SQLException;
-import javax.servlet.RequestDispatcher;
+import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
+@WebServlet(name = "HistoryOrderController", value = { "/HistoryOrder" })
 public class HistoryOrderController extends HttpServlet
 {
-
-    public HistoryOrderController()
-    {
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException
@@ -32,15 +31,11 @@ public class HistoryOrderController extends HttpServlet
         OrderDao dao = new OrderDao();
         try
         {
-            java.util.List list = dao.getAllOrders(account.getUsername());
+            List<Order> list = dao.getAllOrders(account.getUsername());
             request.setAttribute("listorder", list);
             request.getRequestDispatcher("HistoryOrder.jsp").forward(request, response);
         }
-        catch(SQLException e)
-        {
-            throw new RuntimeException(e);
-        }
-        catch(ClassNotFoundException e)
+        catch(SQLException | ClassNotFoundException e)
         {
             throw new RuntimeException(e);
         }

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
-@WebServlet(name = "RegisterController", value = { "/RegisterController" })
+@WebServlet(name = "RegisterController", value = { "/Register" })
 public class RegisterController extends HttpServlet
 {
     protected void doGet(final HttpServletRequest request, final HttpServletResponse response) throws ServletException, IOException {
@@ -29,6 +29,10 @@ public class RegisterController extends HttpServlet
         final int newsletter = Integer.parseInt(request.getParameter("newsletter"));
         final int sex = Integer.parseInt(request.getParameter("male"));
         final String fullname =  firstname+" "+ lastname;
+        if(password!=verifyPassword){
+            request.setAttribute("mess", "Mật khẩu không trùng khớp! Vui lòng nhập lại");
+            request.getRequestDispatcher("Register.jsp").forward((ServletRequest)request, (ServletResponse)response);
+        }
         try {
             final UserService service = new UserService();
             final Account account = service.findAccount(email);
@@ -36,9 +40,13 @@ public class RegisterController extends HttpServlet
                 final Account acountNew = new Account(email, password, fullname, phone, sex, newsletter);
                 AccountDao.addAccount(acountNew);
                 System.out.println(acountNew.toString());
-                response.sendRedirect("Login.jsp");
+                request.setAttribute("mess", "Đăng ký tài khoản thành công");
+                request.getRequestDispatcher("Login.jsp").forward(request, response);
+
+
             }
             else {
+                request.setAttribute("mess", "Tài khoản đã tồn tại!");
                 request.getRequestDispatcher("Register.jsp").forward((ServletRequest)request, (ServletResponse)response);
             }
         }

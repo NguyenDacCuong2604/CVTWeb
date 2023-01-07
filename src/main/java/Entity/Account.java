@@ -9,7 +9,7 @@ public class Account
     private int sex;
     private int newsletter;
     
-    public Account(final String username, final String password, final String fullName, final String phoneNumber, final int sex, final int newsletter) {
+    public Account(String username, String password, String fullName, String phoneNumber, int sex, int newsletter) {
         this.username = username;
         this.password = password;
         this.fullName = fullName;
@@ -22,7 +22,7 @@ public class Account
         return this.username;
     }
     
-    public void setUsername(final String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
     
@@ -30,7 +30,7 @@ public class Account
         return this.password;
     }
     
-    public void setPassword(final String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
     
@@ -38,7 +38,7 @@ public class Account
         return this.fullName;
     }
     
-    public void setFullName(final String fullName) {
+    public void setFullName(String fullName) {
         this.fullName = fullName;
     }
     
@@ -46,7 +46,7 @@ public class Account
         return this.phoneNumber;
     }
     
-    public void setPhoneNumber(final String phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
     
@@ -54,7 +54,7 @@ public class Account
         return this.newsletter;
     }
     
-    public void setNewsletter(final int newsletter) {
+    public void setNewsletter(int newsletter) {
         this.newsletter = newsletter;
     }
     
@@ -62,7 +62,7 @@ public class Account
         return this.sex;
     }
     
-    public void setSex(final int sex) {
+    public void setSex(int sex) {
         this.sex = sex;
     }
 

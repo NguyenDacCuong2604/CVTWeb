@@ -11,6 +11,12 @@
 </head>
 <body>
 <jsp:include page="Layout/Header.jsp" />
+<% String mess = (String)request.getAttribute("mess");
+    if(mess!=null){ %>
+    <script>
+         alert("<%=mess%>");
+    </script>
+<% } %>
 <div id="account-login" class="container">
     <ul class="breadcrumb">
         <li><a href="index.jsp"><i class="fa fa-home"></i></a></li>
@@ -36,18 +42,18 @@
                 <div class="col-sm-6">
                     <div class="well">
                         <h1 style="font-size: 30px;">ĐĂNG NHẬP TÀI KHOẢN</h1>
-                        <form action="/LoginController" method="post">
+                        <form action="/Login" method="post">
                             <div class="form-group">
                                 <label class="control-label" for="input-email" style="font-size: 18px;">Địa chỉ
                                     Email đăng nhập</label>
                                 <input type="text" name="email" value="" placeholder="Nhập địa chỉ email"
-                                       id="input-email" class="form-control" />
+                                       id="input-email" class="form-control"  required/>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="input-password" style="font-size: 18px;">Mật
                                     khẩu</label>
                                 <input type="password" name="password" value="" placeholder="Mật khẩu"
-                                       id="input-password" class="form-control" />
+                                       id="input-password" class="form-control" required />
                                 <!-- link trang quên mật khẩu -->
                                 <a href="Forgottenpassword.jsp">Quên
                                     mật khẩu?</a>

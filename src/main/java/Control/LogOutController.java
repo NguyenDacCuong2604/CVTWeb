@@ -8,15 +8,11 @@ package Control;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
+@WebServlet(name = "LogOutController", value = { "/LogOut" })
 public class LogOutController extends HttpServlet
 {
-
-    public LogOutController()
-    {
-    }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException
     {

@@ -16,7 +16,7 @@ public class Product
     private String detail;
     private List<String> images;
     
-    public Product(final String id, final String name, final int price, final String brand, final int category, final String stock, final int price_buy, final int quantity, final int product_sold, final String detail, final List<String> images) {
+    public Product(String id, String name, int price, String brand, int category, String stock, int price_buy, int quantity, int product_sold, String detail, List<String> images) {
         this.category = category;
         this.id = id;
         this.name = name;
@@ -34,7 +34,7 @@ public class Product
         return this.category;
     }
     
-    public void setCategory(final int category) {
+    public void setCategory(int category) {
         this.category = category;
     }
     
@@ -42,7 +42,7 @@ public class Product
         return this.id;
     }
     
-    public void setId(final String id) {
+    public void setId(String id) {
         this.id = id;
     }
     
@@ -50,7 +50,7 @@ public class Product
         return this.name;
     }
     
-    public void setName(final String name) {
+    public void setName(String name) {
         this.name = name;
     }
     
@@ -58,7 +58,7 @@ public class Product
         return this.price;
     }
     
-    public void setPrice(final int price) {
+    public void setPrice(int price) {
         this.price = price;
     }
     
@@ -66,7 +66,7 @@ public class Product
         return this.images;
     }
     
-    public void setImages(final List<String> images) {
+    public void setImages(List<String> images) {
         this.images = images;
     }
     
@@ -74,7 +74,7 @@ public class Product
         return this.brand;
     }
     
-    public void setBrand(final String brand) {
+    public void setBrand(String brand) {
         this.brand = brand;
     }
     
@@ -82,7 +82,7 @@ public class Product
         return this.stock;
     }
     
-    public void setStock(final String stock) {
+    public void setStock(String stock) {
         this.stock = stock;
     }
     
@@ -90,7 +90,7 @@ public class Product
         return this.price_buy;
     }
     
-    public void setPrice_buy(final int price_buy) {
+    public void setPrice_buy(int price_buy) {
         this.price_buy = price_buy;
     }
     
@@ -98,7 +98,7 @@ public class Product
         return this.quantity;
     }
     
-    public void setQuantity(final int quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
     
@@ -106,7 +106,7 @@ public class Product
         return this.product_sold;
     }
     
-    public void setProduct_sold(final int product_sold) {
+    public void setProduct_sold(int product_sold) {
         this.product_sold = product_sold;
     }
     
@@ -114,7 +114,7 @@ public class Product
         return this.detail;
     }
     
-    public void setDetail(final String detail) {
+    public void setDetail(String detail) {
         this.detail = detail;
     }
 

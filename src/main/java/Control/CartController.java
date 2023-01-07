@@ -1,14 +1,9 @@
-// Decompiled by DJ v3.12.12.98 Copyright 2014 Atanas Neshkov  Date: 1/7/2023 10:48:25 AM
-// Home Page:  http://www.neshkov.com/dj.html - Check often for new version!
-// Decompiler options: packimports(3) 
-// Source File Name:   CartController.java
-
 package Control;
 
+import Dao.ProductDao;
 import Entity.Account;
 import Entity.Cart;
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;

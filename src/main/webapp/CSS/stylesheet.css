@@ -3165,7 +3165,7 @@ p.powered {
 
 /* fixed mobile cart quantity input */
 .input-group .form-control[name^=quantity] {
-    max-width: 45px;
+    max-width: 70px;
     text-align: center;
 }
 #checkout-cart .input-group .form-control[name^=quantity],#checkout-cart .table .input-group .form-control {

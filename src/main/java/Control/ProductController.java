@@ -10,17 +10,12 @@ import Entity.Product;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
+@WebServlet(name = "ProductController", value = { "/Product" })
 public class ProductController extends HttpServlet
 {
-
-    public ProductController()
-    {
-    }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException
     {
@@ -36,16 +31,16 @@ public class ProductController extends HttpServlet
             if(product.getCategory() == 1)
             {
                 category = "daythatlung";
-                categoryName = "D\342y th\u1EAFt l\u01B0ng";
+                categoryName = "Dây thắt lưng";
             } else
             if(product.getCategory() == 2)
             {
                 category = "matthatlung";
-                categoryName = "M\u1EB7t th\u1EAFt l\u01B0ng";
+                categoryName = "Mặt thắt lưng";
             } else
             {
                 category = "thatlung";
-                categoryName = "Th\u1EAFt l\u01B0ng nam";
+                categoryName = "Thắt lưng nam";
             }
             request.setAttribute("listproduct", list);
             request.setAttribute("category", category);
@@ -53,11 +48,7 @@ public class ProductController extends HttpServlet
             request.setAttribute("namecategory", categoryName);
             request.getRequestDispatcher("Product.jsp").forward(request, response);
         }
-        catch(SQLException e)
-        {
-            throw new RuntimeException(e);
-        }
-        catch(ClassNotFoundException e)
+        catch(SQLException | ClassNotFoundException e)
         {
             throw new RuntimeException(e);
         }

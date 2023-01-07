@@ -22,7 +22,7 @@
       <h1>Đăng ký tài khoản</h1>
       <p>Nếu bạn đã có tài khoản với chúng tôi, vui lòng đăng nhập tại trang <a
               href="Login.jsp">đăng nhập</a>.</p>
-      <form action="/RegisterController" method="post" class="form-horizontal">
+      <form action="/Register" method="post" class="form-horizontal" name="form1" onsubmit="return validation()">
         <fieldset id="account">
           <legend>Thông Tin Cá Nhân Của Bạn</legend>
           <div class="form-group required" style="display:  none ;">
@@ -39,28 +39,28 @@
             <label class="col-sm-2 control-label" for="input-firstname">Họ</label>
             <div class="col-sm-10">
               <input type="text" name="firstname" value="" placeholder="Họ" id="input-firstname"
-                     class="form-control" />
+                     class="form-control" required />
             </div>
           </div>
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-lastname">Tên</label>
             <div class="col-sm-10">
               <input type="text" name="lastname" value="" placeholder="Tên" id="input-lastname"
-                     class="form-control" />
+                     class="form-control" required />
             </div>
           </div>
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-email">E-Mail</label>
             <div class="col-sm-10">
               <input type="email" name="email" value="" placeholder="E-Mail" id="input-email"
-                     class="form-control" />
+                     class="form-control" required />
             </div>
           </div>
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-telephone">Điện thoại</label>
             <div class="col-sm-10">
               <input type="tel" name="telephone" value="" placeholder="Điện thoại"
-                     id="input-telephone" class="form-control" />
+                     id="input-telephone" class="form-control" required />
             </div>
           </div>
           <div class="form-group required">
@@ -109,9 +109,9 @@
           <div class="pull-right">Tôi đã đọc và đồng ý với <a
                   href="privacypolicy.html"
           ><b>Chính sách quyền riêng tư</b></a>
-            <input type="checkbox" name="agree" value="1" />
+            <input type="checkbox" name="agree" value="1" required />
             &nbsp;
-            <input type="submit" value="Tiếp Tục" class="btn btn-primary" />
+            <input type="submit" name="summit" value="Tiếp Tục" class="btn btn-primary" />
           </div>
         </div>
       </form>
@@ -120,5 +120,37 @@
 </div>
 
 <jsp:include page="Layout/Footer.jsp" />
+<% String mess = (String)request.getAttribute("mess");
+  if(mess!=null){ %>
+<script>
+  alert("<%=mess%>");
+</script>
+<% } %>
+
+<script>
+
+  function validation(){
+    var pass = document.form1.password.value;
+
+    var pass2 = document.getElementById("input-password")
+
+    if(pass.length < 6){
+
+      alert("Mật khẩu phải có từ 6 ký tự trở lên")
+      pass2.style.border = "1px solid red";
+
+      return false;
+
+    }else{
+
+      pass2.style.border = "1px solid black";
+
+      return true;
+
+    }
+  }
+
+
+</script>
 </body>
 </html>

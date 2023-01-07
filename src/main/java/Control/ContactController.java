@@ -7,14 +7,11 @@ package Control;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
+@WebServlet(name = "ConctactController", value = { "/Contact" })
 public class ContactController extends HttpServlet
 {
-
-    public ContactController()
-    {
-    }
 
     protected void doGet(HttpServletRequest httpservletrequest, HttpServletResponse httpservletresponse)
         throws ServletException, IOException

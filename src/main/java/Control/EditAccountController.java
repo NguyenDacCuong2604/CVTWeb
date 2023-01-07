@@ -8,17 +8,13 @@ package Control;
 import Dao.AccountDao;
 import Entity.Account;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
+@WebServlet(name = "EditAccountController", value = { "/EditAccount" })
 public class EditAccountController extends HttpServlet
 {
-
-    public EditAccountController()
-    {
-    }
 
     protected void doGet(HttpServletRequest httpservletrequest, HttpServletResponse httpservletresponse)
         throws ServletException, IOException
@@ -29,10 +25,7 @@ public class EditAccountController extends HttpServlet
         throws ServletException, IOException
     {
         String fullName = request.getParameter("fullname");
-        System.out.println(fullName);
         String phone = request.getParameter("telephone");
-        System.out.println(phone);
-        System.out.println(request.getParameter("sex"));
         int sex = Integer.parseInt(request.getParameter("sex"));
         Account account = (Account)request.getSession().getAttribute("account");
         account.setFullName(fullName);
@@ -42,13 +35,10 @@ public class EditAccountController extends HttpServlet
         {
             AccountDao.updateAccount(account);
             request.getSession().setAttribute("account", account);
-            response.sendRedirect("MyAccount.jsp");
+            request.setAttribute("mess", "đã cập nhật thông tin");
+            request.getRequestDispatcher("MyAccount.jsp").forward(request, response);
         }
-        catch(SQLException e)
-        {
-            throw new RuntimeException(e);
-        }
-        catch(ClassNotFoundException e)
+        catch(SQLException | ClassNotFoundException e)
         {
             throw new RuntimeException(e);
         }

@@ -1,24 +1,15 @@
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   CheckoutController.java
 
 package Control;
 
 import Entity.Account;
 import Entity.Cart;
 import java.io.IOException;
-import java.util.Map;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-
+@WebServlet(name = "CheckoutController", value = { "/Checkout" })
 public class CheckoutController extends HttpServlet
 {
-
-    public CheckoutController()
-    {
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException

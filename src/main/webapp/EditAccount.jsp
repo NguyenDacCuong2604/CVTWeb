@@ -12,6 +12,12 @@
     <script src="JS/Custom.js" type="text/javascript"></script>
 </head>
 <body>
+<% String mess = (String)request.getAttribute("mess");
+    if(mess!=null){ %>
+<script>
+    alert("<%=mess%>");
+</script>
+<% } %>
     <jsp:include page="Layout/Header.jsp" />
     <div id="myaccount" class="container">
         <ul class="breadcrumb">
@@ -23,14 +29,14 @@
         <jsp:include page="/Layout/MenuBarAccount.jsp" />
         <div id="content" class="col-sm-9">
             <h1 class="page_title">Thông tin tài khoản của tôi</h1>
-            <form action="/EditAccountController" method="post" class="form-horizontal">
+            <form action="/EditAccount" method="post" class="form-horizontal">
                 <fieldset>
                     <legend>Thông tin cá nhân của bạn</legend>
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-lastname">Họ và tên</label>
                         <div class="col-sm-10">
                             <input type="text" name="fullname" value="<%=account.getFullName() %>" placeholder="Họ và tên"
-                                   id="input-lastname" class="form-control">
+                                   id="input-lastname" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group required">
@@ -43,7 +49,7 @@
                         <label class="col-sm-2 control-label" for="input-telephone">Số điện thoại</label>
                         <div class="col-sm-10">
                             <input type="tel" name="telephone" value="<%=account.getPhoneNumber()%>" placeholder="Số điện thoại"
-                                   id="input-telephone" class="form-control">
+                                   id="input-telephone" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group required">

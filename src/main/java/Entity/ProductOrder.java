@@ -8,7 +8,7 @@ public class ProductOrder
     private int quantity;
     private int total;
     
-    public ProductOrder(final int id, final String id_order, final String id_product, final int quantity, final int total) {
+    public ProductOrder(int id, String id_order, String id_product, int quantity, int total) {
         this.id = id;
         this.id_order = id_order;
         this.id_product = id_product;
@@ -20,7 +20,7 @@ public class ProductOrder
         return this.id;
     }
     
-    public void setId(final int id) {
+    public void setId(int id) {
         this.id = id;
     }
     
@@ -28,7 +28,7 @@ public class ProductOrder
         return this.id_order;
     }
     
-    public void setId_order(final String id_order) {
+    public void setId_order(String id_order) {
         this.id_order = id_order;
     }
     
@@ -36,7 +36,7 @@ public class ProductOrder
         return this.id_product;
     }
     
-    public void setId_product(final String id_product) {
+    public void setId_product(String id_product) {
         this.id_product = id_product;
     }
     
@@ -44,7 +44,7 @@ public class ProductOrder
         return this.quantity;
     }
     
-    public void setQuantity(final int quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
     
@@ -52,7 +52,7 @@ public class ProductOrder
         return this.total;
     }
     
-    public void setTotal(final int total) {
+    public void setTotal(int total) {
         this.total = total;
     }
 }

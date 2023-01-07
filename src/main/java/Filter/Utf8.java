@@ -12,9 +12,6 @@ import javax.servlet.annotation.WebFilter;
 @WebFilter(filterName="Utf8", urlPatterns={"/*"})
 public class Utf8 implements Filter
 {
-    public Utf8()
-    {
-    }
 
     public void init(FilterConfig filterconfig)
         throws ServletException

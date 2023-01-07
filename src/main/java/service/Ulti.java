@@ -10,8 +10,8 @@ public class Ulti
     
     public static String randomText() {
         String str = "";
-        final Random rd = new Random();
-        final char[] array = new char[2];
+        Random rd = new Random();
+        char[] array = new char[2];
         for (int i = 0; i < 6; ++i) {
             array[0] = (char)(rd.nextInt(10) + 48);
             array[1] = (char)(rd.nextInt(26) + 97);

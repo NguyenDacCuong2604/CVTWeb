@@ -11,6 +11,12 @@
 </head>
 <body>
   <jsp:include page="Layout/Header.jsp" />
+  <% String mess = (String)request.getAttribute("mess");
+    if(mess!=null){ %>
+  <script>
+    alert("<%=mess%>");
+  </script>
+  <% } %>
   <div id="myaccount" class="container">
     <ul class="breadcrumb">
       <li><a href="Home.jsp"><i class="fa fa-home"></i></a></li>
