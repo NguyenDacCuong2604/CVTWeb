@@ -15,7 +15,7 @@ public class Ulti
         for (int i = 0; i < 6; ++i) {
             array[0] = (char)(rd.nextInt(10) + 48);
             array[1] = (char)(rd.nextInt(26) + 97);
-            str = invokedynamic(makeConcatWithConstants:(Ljava/lang/String;C)Ljava/lang/String;, str, array[rd.nextInt(2)]);
+            str +=array[rd.nextInt(2)];
         }
         return str;
     }
