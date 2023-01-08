@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import Connect.DataDB;
 
+import javax.xml.crypto.Data;
+
 public class OrderDao
 {
     public void updateOrder(String id, String status) throws SQLException, ClassNotFoundException {
@@ -17,6 +19,18 @@ public class OrderDao
         sta.setString(2, id);
         sta.setString(1, status);
         sta.executeUpdate();
+    }
+    public int countOrder(String username) throws SQLException, ClassNotFoundException {
+        int i=0;
+        DataDB db = new DataDB();
+        PreparedStatement sta = db.getStatement("select * from account where username = ?");
+        sta.setString(1, username);
+        ResultSet rs = sta.executeQuery();
+        while(rs.next()){
+            i++;
+        }
+
+        return i;
     }
     public void addOrder(final String id, final String username, final String payment, final String ship, final int totalship, final int total, final String fullname, final String phone, final String address, final String comment, final int number) throws SQLException, ClassNotFoundException {
         DataDB db = new DataDB();

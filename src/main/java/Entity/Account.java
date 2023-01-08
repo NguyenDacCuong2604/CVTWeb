@@ -1,5 +1,7 @@
 package Entity;
 
+import java.sql.Date;
+
 public class Account
 {
     private String username;
@@ -8,6 +10,8 @@ public class Account
     private String phoneNumber;
     private int sex;
     private int newsletter;
+    private int enable;
+    private Date date;
     
     public Account(String username, String password, String fullName, String phoneNumber, int sex, int newsletter) {
         this.username = username;
@@ -17,7 +21,23 @@ public class Account
         this.sex = sex;
         this.newsletter = newsletter;
     }
-    
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public int getEnable() {
+        return enable;
+    }
+
+    public void setEnable(int enable) {
+        this.enable = enable;
+    }
+
     public String getUsername() {
         return this.username;
     }
