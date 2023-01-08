@@ -19,7 +19,7 @@ public class Order
     private String comment;
     private String status;
     private int number;
-    
+    private String nameAccount;
     public Order(String id, String username, String payment, String ship, String fullname, String phone, String address, int total, Date date, int totalship, String comment, String status, int number, Time time) {
         this.id = id;
         this.username = username;
@@ -36,7 +36,15 @@ public class Order
         this.number = number;
         this.time = time;
     }
-    
+
+    public String getNameAccount() {
+        return nameAccount;
+    }
+
+    public void setNameAccount(String nameAccount) {
+        this.nameAccount = nameAccount;
+    }
+
     public Time getTime() {
         return this.time;
     }
@@ -147,5 +155,26 @@ public class Order
     
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", payment='" + payment + '\'' +
+                ", ship='" + ship + '\'' +
+                ", fullname='" + fullname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", total=" + total +
+                ", date=" + date +
+                ", time=" + time +
+                ", totalship=" + totalship +
+                ", comment='" + comment + '\'' +
+                ", status='" + status + '\'' +
+                ", number=" + number +
+                ", nameAccount='" + nameAccount + '\'' +
+                '}';
     }
 }

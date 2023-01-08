@@ -11,6 +11,13 @@ import Connect.DataDB;
 
 public class OrderDao
 {
+    public void updateOrder(String id, String status) throws SQLException, ClassNotFoundException {
+        DataDB db = new DataDB();
+        PreparedStatement sta = db.getStatement("update order1 set status =? where id=?");
+        sta.setString(2, id);
+        sta.setString(1, status);
+        sta.executeUpdate();
+    }
     public void addOrder(final String id, final String username, final String payment, final String ship, final int totalship, final int total, final String fullname, final String phone, final String address, final String comment, final int number) throws SQLException, ClassNotFoundException {
         DataDB db = new DataDB();
         PreparedStatement sta = db.getStatement("insert into order1(id, username, payment, ship, totalship, total, fullname, phone, address, comment, date, status, number) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now(), ?, ?)");
@@ -28,10 +35,24 @@ public class OrderDao
         sta.setInt(12, number);
         sta.executeUpdate();
     }
-    
-    public List<ProductOrder> getProductsOrder(final String id_order) throws SQLException, ClassNotFoundException {
+    public List<Order> getAllOrders()  throws SQLException, ClassNotFoundException{
+        List<Order> list = new ArrayList<Order>();
+        DataDB db = new DataDB();
+        PreparedStatement sta = db.getStatement("select * from order1 order by date desc");
+        ResultSet rs = sta.executeQuery();
+        Order order;
+        while(rs.next()){
+            order = new Order(rs.getString("id"), rs.getString("username"), rs.getString("payment"), rs.getString("ship"), rs.getString("fullname"), rs.getString("phone"), rs.getString("address"), rs.getInt("total"), rs.getDate("date"), rs.getInt("totalship"), rs.getString("comment"), rs.getString("status"), rs.getInt("number"), rs.getTime("date"));
+            order.setNameAccount(AccountDao.getFullName(rs.getString("username")));
+            list.add(order);
+        }
+        return list;
+    }
+
+    public List<ProductOrder> getProductsOrder(String id_order) throws SQLException, ClassNotFoundException {
         List<ProductOrder> list = new ArrayList<ProductOrder>();
         DataDB db = new DataDB();
+        ProductDao product;
         PreparedStatement sta = db.getStatement("select * from product_order where id_order = ?");
         sta.setString(1, id_order);
         ResultSet rs = sta.executeQuery();
@@ -42,8 +63,8 @@ public class OrderDao
         }
         return list;
     }
-    
-    public List<Order> getAllOrders(final String username) throws SQLException, ClassNotFoundException {
+
+    public List<Order> getAllOrders(String username) throws SQLException, ClassNotFoundException {
         List<Order> list = new ArrayList<Order>();
         DataDB db = new DataDB();
         PreparedStatement sta = db.getStatement("select * from order1 where username = ? order by date desc");
@@ -51,12 +72,12 @@ public class OrderDao
         ResultSet rs = sta.executeQuery();
         Order order;
         while (rs.next()) {
-            order = new Order(rs.getString("id"), rs.getString("username"), rs.getString("payment"), rs.getString("ship"), rs.getString("fullname"), rs.getString("phone"), rs.getString("address"), rs.getInt("total"), rs.getDate("date"), rs.getInt("totalship"), rs.getString("comment"), rs.getString("status"), rs.getInt("number"), rs.getTime("date"));
-            list.add(order);
+                order = new Order(rs.getString("id"), rs.getString("username"), rs.getString("payment"), rs.getString("ship"), rs.getString("fullname"), rs.getString("phone"), rs.getString("address"), rs.getInt("total"), rs.getDate("date"), rs.getInt("totalship"), rs.getString("comment"), rs.getString("status"), rs.getInt("number"), rs.getTime("date"));
+                list.add(order);
         }
         return list;
     }
-    
+
     public void addProductOrder(final String id_order, final String id_product, final int quantity, final int total) throws SQLException, ClassNotFoundException {
         final DataDB db = new DataDB();
         final PreparedStatement sta = db.getStatement("insert into product_order(id_order, id_product, quantity, total) values (?,?,?,?)");
@@ -66,7 +87,7 @@ public class OrderDao
         sta.setInt(4, total);
         sta.executeUpdate();
     }
-    
+
     public boolean checkIdOrder(final String id_order) throws SQLException, ClassNotFoundException {
         DataDB db = new DataDB();
         PreparedStatement sta = db.getStatement("select * from order1 where id=?");
@@ -74,7 +95,7 @@ public class OrderDao
         ResultSet rs = sta.executeQuery();
         return !rs.next();
     }
-    
+
     public Order getOrder(final String idOrder) throws SQLException, ClassNotFoundException {
         DataDB db = new DataDB();
         PreparedStatement sta = db.getStatement("select * from order1 where id = ?");

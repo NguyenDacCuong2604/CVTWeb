@@ -1,5 +1,6 @@
 package Dao;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import Connect.DataDB;
@@ -28,12 +29,23 @@ public class AccountDao
         sta.setString(4, account.getUsername());
         sta.executeUpdate();
     }
-    
     public static void updatePassword(final Account account) throws SQLException, ClassNotFoundException {
         DataDB db = new DataDB();
         PreparedStatement sta = db.getStatement("update account set password =? where username = ?");
         sta.setString(1, account.getPassword());
         sta.setString(2, account.getUsername());
         sta.executeUpdate();
+    }
+
+    public static String getFullName(String username) throws SQLException, ClassNotFoundException{
+        DataDB db = new DataDB();
+        PreparedStatement sta = db.getStatement("select * from account where username = ?");
+        sta.setString(1, username);
+        ResultSet rs = sta.executeQuery();
+        String name = "";
+        if(rs.next()){
+            name = rs.getString("fullname");
+        }
+        return name;
     }
 }
