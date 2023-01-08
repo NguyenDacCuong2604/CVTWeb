@@ -169,21 +169,23 @@
                 </ul>
             </div>
             <div class="header-search">
+                <form action="Search" method="post">
                 <div id="mahardhiSearch" class="input-group mahardhi-search">
                     <select name="category_id" class="form-control input-lg">
-                        <option value="0">Tất cả</option>
-                        <option value="20">Thắt lưng nam</option>
-                        <option value="18">Mặt thắt lưng</option>
-                        <option value="18">Dây thắt lưng rời</option>
+                        <option value="All">Tất cả</option>
+                        <option value="3">Thắt lưng nam</option>
+                        <option value="2">Mặt thắt lưng</option>
+                        <option value="1">Dây thắt lưng rời</option>
                     </select>
-                    <input type="text" name="search" value="" placeholder="Search"
+                    <input type="text" name="search_name" value="" placeholder="Search"
                            class="form-control input-lg ui-autocomplete-input" autofocus="autofocus" />
                     <span class="btn-search input-group-btn">
-							<button type="button" class="btn btn-default btn-lg"><i
+							<button type="submit" class="btn btn-default btn-lg"><i
                                     class="fa-solid fa-magnifying-glass"></i></button>
 						</span>
                 </div>
                 <span class="search-close-icon close-button"><i class="fa-solid fa-circle-xmark"></i></span>
+                </form>
             </div>
         </div>
 

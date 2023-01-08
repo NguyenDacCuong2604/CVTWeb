@@ -28,10 +28,12 @@ public class RegisterController extends HttpServlet
         final String verifyPassword = request.getParameter("confirm");
         final int newsletter = Integer.parseInt(request.getParameter("newsletter"));
         final int sex = Integer.parseInt(request.getParameter("male"));
+        System.out.println(password+"-"+verifyPassword);
         final String fullname =  firstname+" "+ lastname;
-        if(password!=verifyPassword){
+        if(!password.equals(verifyPassword)){
             request.setAttribute("mess", "Mật khẩu không trùng khớp! Vui lòng nhập lại");
-            request.getRequestDispatcher("Register.jsp").forward((ServletRequest)request, (ServletResponse)response);
+            request.getRequestDispatcher("Register.jsp").forward(request, response);
+            return;
         }
         try {
             final UserService service = new UserService();
@@ -42,8 +44,6 @@ public class RegisterController extends HttpServlet
                 System.out.println(acountNew.toString());
                 request.setAttribute("mess", "Đăng ký tài khoản thành công");
                 request.getRequestDispatcher("Login.jsp").forward(request, response);
-
-
             }
             else {
                 request.setAttribute("mess", "Tài khoản đã tồn tại!");

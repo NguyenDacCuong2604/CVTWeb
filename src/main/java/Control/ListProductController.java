@@ -6,6 +6,8 @@
 package Control;
 
 import Dao.ProductDao;
+import Entity.Product;
+
 import java.io.IOException;
 import java.io.PrintStream;
 import java.sql.SQLException;
@@ -25,7 +27,7 @@ public class ListProductController extends HttpServlet
         String cateId = request.getParameter("category");
         String category = null;
         ProductDao dao = new ProductDao();
-        List list = null;
+        List<Product> list = null;
         try
         {
             if(cateId == null)
