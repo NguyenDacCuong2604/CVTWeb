@@ -44,9 +44,9 @@
                         String text = (String) request.getAttribute("text");
                         String cate = (String) request.getAttribute("id");
                         if(list==null){ %>
-                    <h3>Không tìm thấy sản phẩm có từ khóa là <%=text%> trong <%=cate%></h3>
+                    <h3>Không tìm thấy sản phẩm có từ khóa là "<%=text%>" trong <%=cate%></h3>
                     <% } else { %>
-                    <h3>Sản phẩm có từ khóa là <%=text%> trong <%=cate%></h3>     <%
+                    <h3>Sản phẩm có từ khóa là "<%=text%>" trong <%=cate%></h3>     <%
                         for(Product p: list){ %>
                     <div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <div class="product-thumb">
