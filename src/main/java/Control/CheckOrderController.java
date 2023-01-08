@@ -35,7 +35,7 @@ public class CheckOrderController extends HttpServlet
         String paymentText = request.getParameter("payment_method");
         String payment = paymentText.equals("Cod") ? "Thanh toán khi nhận hàng" : null;
         String shipText = request.getParameter("shipping_method");
-        String ship = shipText.equals("1") ? "Giao hàng tiết kiệm" : "Viettel Post";
+        String ship = shipText.equals("0") ? "Giao hàng tiết kiệm" : "Viettel Post";
         int totalship = 30000;
         String fullname = request.getParameter("fullname");
         String numberphone = request.getParameter("phone");

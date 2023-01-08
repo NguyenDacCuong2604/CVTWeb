@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.ArrayList;
 import Connect.DataDB;
 import Entity.Product;
+import service.Ulti;
 
 public class ProductDao
 {
@@ -30,12 +31,53 @@ public class ProductDao
         }
         return product;
     }
-    
+    public boolean checkId(String id) throws SQLException, ClassNotFoundException {
+        DataDB db = new DataDB();
+        PreparedStatement sta = db.getStatement("select * from product where id_product=?");
+        sta.setString(1, id);
+        ResultSet rs = sta.executeQuery();
+        return rs.next();
+    }
+    public String id_notfound() throws SQLException, ClassNotFoundException {
+        String id = Ulti.randomText();
+        while(checkId(id)){
+            id = Ulti.randomText();
+        }
+        return id;
+    }
+    public void insertImageProduct(String id_product, String link) throws SQLException, ClassNotFoundException {
+        DataDB db = new DataDB();
+        PreparedStatement rs = db.getStatement("insert into imageproduct(id_product, link) values (? , ?)");
+        rs.setString(1, id_product);
+        rs.setString(2, link);
+        rs.executeUpdate();
+    }
     public List<Product> getProductsBestSeller() throws SQLException, ClassNotFoundException {
         List<Product> list = new ArrayList<Product>();
         DataDB db = new DataDB();
         DataDB db2 = new DataDB();
         PreparedStatement sta = db.getStatement("select * from product ORDER BY products_sold DESC limit 0, 3");
+        ResultSet rs = sta.executeQuery();
+        while (rs.next()) {
+            List<String> images = new ArrayList<String>();
+            String id_product = rs.getString("id_product");
+            PreparedStatement staImg = db2.getStatement("select * from imageproduct where id_product=?");
+            staImg.setString(1, id_product);
+            ResultSet rsImg = staImg.executeQuery();
+            while (rsImg.next()) {
+                images.add("Image/"+rsImg.getString("link"));
+            }
+            Product product = new Product(rs.getString("id_product"), rs.getString("name"), rs.getInt("price"), rs.getString("brand"), rs.getInt("category"), rs.getString("stock"), rs.getInt("price_buy"), rs.getInt("quantity"), rs.getInt("products_sold"), rs.getString("detail"), images);
+            list.add(product);
+        }
+        return list;
+    }
+    public List<Product> getProductsBestSeller(int n) throws SQLException, ClassNotFoundException {
+        List<Product> list = new ArrayList<Product>();
+        DataDB db = new DataDB();
+        DataDB db2 = new DataDB();
+        PreparedStatement sta = db.getStatement("select * from product ORDER BY products_sold DESC limit 0, ?");
+        sta.setInt(1, n);
         ResultSet rs = sta.executeQuery();
         while (rs.next()) {
             List<String> images = new ArrayList<String>();
@@ -156,5 +198,24 @@ public class ProductDao
         for (Product p : list) {
             System.out.println(p.toString());
         }
+    }
+
+    public void insertProduct(String idProduct, String nameproduct, String brand, int category, int price, int pricebuy, int quantity, String detail) throws SQLException, ClassNotFoundException {
+        DataDB db = new DataDB();
+        PreparedStatement rs = db.getStatement("insert into product(id_product, name, brand, category, price, price_buy, quantity, detail, products_sold, stock) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        rs.setString(1, idProduct);
+        rs.setString(2, nameproduct);
+        rs.setString(3, brand);
+        rs.setInt(4, category);
+        rs.setInt(5, price);
+        rs.setInt(6, pricebuy);
+        rs.setInt(7, quantity);
+        rs.setString(8, detail);
+        rs.setInt(9, 0);
+        if(quantity!=0){
+            rs.setString(10,"Còn hàng");
+        }
+        else rs.setString(10,"Hết hàng");
+        rs.executeUpdate();
     }
 }

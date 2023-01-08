@@ -50,9 +50,9 @@
                                             <label>Đã bán <%=p.getProduct_sold()%></label>
                                             <% if(p.getPrice_buy()!=p.getPrice()) { %>
                                             <p class="price">
-                                                <span class="price-new"><%=p.getPrice_buy()%>>&nbsp;VNĐ</span> <span
+                                                <span class="price-new"><%=p.getPrice_buy()%>&nbsp;VNĐ</span> <span
                                                     class="price-old"><%=p.getPrice()%>&nbsp;VNĐ</span>
-                                            </p>c
+                                            </p>
                                             <% } else { %>
                                             <p class="price">
                                                 <span class="price-new"><%=p.getPrice_buy()%>&nbsp;VNĐ</span>
