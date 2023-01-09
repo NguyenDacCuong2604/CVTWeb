@@ -121,4 +121,17 @@ public class OrderDao
         }
         return null;
     }
+
+    public List<Order> getOrderWeek() throws SQLException, ClassNotFoundException {
+        List<Order> list = new ArrayList<Order>();
+        DataDB db = new DataDB();
+        PreparedStatement sta = db.getStatement("select * from order1 where week(date)=week(now()) order by date desc");
+        ResultSet rs = sta.executeQuery();
+        Order order;
+        while (rs.next()) {
+            order = new Order(rs.getString("id"), rs.getString("username"), rs.getString("payment"), rs.getString("ship"), rs.getString("fullname"), rs.getString("phone"), rs.getString("address"), rs.getInt("total"), rs.getDate("date"), rs.getInt("totalship"), rs.getString("comment"), rs.getString("status"), rs.getInt("number"), rs.getTime("date"));
+            list.add(order);
+        }
+        return list;
+    }
 }

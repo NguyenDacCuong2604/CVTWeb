@@ -16,14 +16,14 @@ public class AdminEditProductController extends HttpServlet {
         String id = request.getParameter("id");
         ProductDao dao = new ProductDao();
         try {
-            Product product = dao.getProduct("id");
+            Product product = dao.getProduct(id);
+            System.out.println(product.toString());
             request.setAttribute("product", product);
             request.getRequestDispatcher("AdminEditProduct.jsp").forward(request, response);
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

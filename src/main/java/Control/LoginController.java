@@ -31,13 +31,24 @@ public class LoginController extends HttpServlet
             {
                 request.setAttribute("mess", "Sai thông tin!");
                 request.getRequestDispatcher("Login.jsp").forward(request, response);
-            } else
-            {
-                request.setAttribute("mess", "Đăng nhập thành công");
+            } else if(account.getRole()==2){
                 HttpSession session = request.getSession();
-                session.setAttribute("account", account);
-                session.setAttribute("cart", new Cart());
-                request.getRequestDispatcher("index.jsp").forward(request,response);
+                session.setAttribute("admin", account);
+                response.sendRedirect("AdminIndex");
+            }
+            else
+            {
+                if(account.getEnable()==1) {
+                    request.setAttribute("mess", "Đăng nhập thành công");
+                    HttpSession session = request.getSession();
+                    session.setAttribute("account", account);
+                    session.setAttribute("cart", new Cart());
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                }
+                else{
+                    request.setAttribute("mess", "Tài khoản đã bị khóa, vui lòng liên hệ admin để được giải quyết");
+                    request.getRequestDispatcher("Login.jsp").forward(request, response);
+                }
             }
         }
         catch(SQLException | ClassNotFoundException e)

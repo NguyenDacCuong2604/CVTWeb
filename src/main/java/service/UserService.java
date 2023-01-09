@@ -18,6 +18,8 @@ public class UserService extends Service
         final ResultSet rs = ps.executeQuery();
         if (rs.next()) {
             account = new Account(rs.getString("username"), rs.getString("password"), rs.getString("fullname"), rs.getString("phone"), rs.getInt("sex"), Integer.parseInt(rs.getString("newsletter")));
+            account.setRole(rs.getInt("role"));
+            account.setEnable(rs.getInt("enabled"));
         }
         return account;
     }

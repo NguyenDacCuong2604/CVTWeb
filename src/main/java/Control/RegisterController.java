@@ -26,7 +26,7 @@ public class RegisterController extends HttpServlet
         final String phone = request.getParameter("telephone");
         final String password = request.getParameter("password");
         final String verifyPassword = request.getParameter("confirm");
-        final int newsletter = Integer.parseInt(request.getParameter("newsletter"));
+        final int newsletter = 0;
         final int sex = Integer.parseInt(request.getParameter("male"));
         System.out.println(password+"-"+verifyPassword);
         final String fullname =  firstname+" "+ lastname;
@@ -50,11 +50,8 @@ public class RegisterController extends HttpServlet
                 request.getRequestDispatcher("Register.jsp").forward((ServletRequest)request, (ServletResponse)response);
             }
         }
-        catch (SQLException e) {
+        catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
-        }
-        catch (ClassNotFoundException e2) {
-            throw new RuntimeException(e2);
         }
     }
 }

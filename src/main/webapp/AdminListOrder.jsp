@@ -41,7 +41,7 @@
         <div id="sidebar" class="sidebar ec-sidebar-footer">
 
             <div class="ec-brand">
-                <a href="index.html" title="CVT">
+                <a href="AdminIndex" title="CVT">
                     <img class="ec-brand-icon" src="assets/img/logoshop.png" alt="" />
                     <span class="ec-brand-name text-truncate">CVT Shop</span>
                 </a>
@@ -53,7 +53,7 @@
                 <ul class="nav sidebar-inner" id="sidebar-menu">
                     <!-- Dashboard -->
                     <li>
-                        <a class="sidenav-item-link" href="index.html">
+                        <a class="sidenav-item-link" href="AdminIndex">
                             <i class="mdi mdi-view-dashboard-outline"></i>
                             <span class="nav-text">Bảng điều khiển</span>
                         </a>
@@ -68,7 +68,7 @@
                         <div class="collapse">
                             <ul class="sub-menu" id="users" data-parent="#sidebar-menu">
                                 <li class="">
-                                    <a class="sidenav-item-link" href="user-list.html">
+                                    <a class="sidenav-item-link" href="AdminListUser">
                                         <span class="nav-text">Danh sách khách hàng</span>
                                     </a>
                                 </li>
@@ -86,12 +86,12 @@
                         <div class="collapse ">
                             <ul class="sub-menu" id="products" data-parent="#sidebar-menu">
                                 <li class="">
-                                    <a class="sidenav-item-link" href="product-add.html">
+                                    <a class="sidenav-item-link" href="AdminAddProduct.jsp">
                                         <span class="nav-text">Thêm sản phẩm</span>
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a class="sidenav-item-link" href="product-list.html">
+                                    <a class="sidenav-item-link" href="AdminListProduct">
                                         <span class="nav-text">Danh sách sản phẩm</span>
                                     </a>
                                 </li>
@@ -108,18 +108,12 @@
                         <div class="collapse show">
                             <ul class="sub-menu" id="orders" data-parent="#sidebar-menu">
                                 <li class="active">
-                                    <a class="sidenav-item-link" href="new-order.html">
+                                    <a class="sidenav-item-link" href="AdminListOrder">
                                         <span class="nav-text">Danh sách đơn hàng</span>
                                     </a>
                                 </li>
                             </ul>
                         </div>
-                    </li>
-                    <li>
-                        <a class="sidenav-item-link" href="review-list.html">
-                            <i class="mdi mdi-star-half"></i>
-                            <span class="nav-text">Nhận xét</span>
-                        </a>
                     </li>
                 </ul>
             </div>
@@ -152,8 +146,8 @@
                                 <li class="dropdown-header">
                                     <img src="assets/img/user/user.png" class="img-circle" alt="User Image" />
                                     <div class="d-inline-block">
-                                        Admin CVT <small class="pt-1">
-                                        <p>adminCVT@gmail.com</p>
+                                        Admin <small class="pt-1">
+                                        <p>admin@gmail.com</p>
                                     </small>
                                     </div>
                                 </li>
@@ -161,240 +155,9 @@
                                     <a href="javascript:0"> <i class="mdi mdi-settings-outline"></i> Cài đặt </a>
                                 </li>
                                 <li class="dropdown-footer">
-                                    <a href="index.html"> <i class="mdi mdi-logout"></i> Đăng xuất </a>
+                                    <a href="LogOut"> <i class="mdi mdi-logout"></i> Đăng xuất </a>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="dropdown notifications-menu custom-dropdown">
-                            <button class="dropdown-toggle notify-toggler custom-dropdown-toggler">
-                                <i class="mdi mdi-bell-outline"></i>
-                            </button>
-
-                            <div class="card card-default dropdown-notify dropdown-menu-right mb-0">
-                                <div class="card-header card-header-border-bottom px-3">
-                                    <h2>Thông báo</h2>
-                                </div>
-                                <!-- noi dung thong bao -->
-                                <div class="card-body px-0 py-0">
-                                    <div class="tab-content" id="myNotifications">
-                                        <div class="tab-pane fade show active" id="home2" role="tabpanel">
-                                            <ul class="list-unstyled" data-simplebar style="height: 360px">
-                                                <li>
-                                                    <a href="javscript:void(0)"
-                                                       class="media media-message media-notification">
-                                                        <div class="position-relative mr-3">
-                                                            <img class="rounded-circle" src="assets/img/user/u2.jpg"
-                                                                 alt="Image">
-                                                            <span class="status away"></span>
-                                                        </div>
-                                                        <div class="media-body d-flex justify-content-between">
-                                                            <div class="message-contents">
-                                                                <h4 class="title">Nitin</h4>
-                                                                <p class="last-msg">Lorem ipsum dolor sit, amet
-                                                                    consectetur adipisicing elit. Nam itaque
-                                                                    doloremque odio, eligendi delectus vitae.</p>
-
-                                                                <span
-                                                                        class="font-size-12 font-weight-medium text-secondary">
-																		<i class="mdi mdi-clock-outline"></i> 30 min
-																		ago...
-																	</span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="javscript:void(0)"
-                                                       class="media media-message media-notification media-active">
-                                                        <div class="position-relative mr-3">
-                                                            <img class="rounded-circle" src="assets/img/user/u1.jpg"
-                                                                 alt="Image">
-                                                            <span class="status active"></span>
-                                                        </div>
-                                                        <div class="media-body d-flex justify-content-between">
-                                                            <div class="message-contents">
-                                                                <h4 class="title">Lovina</h4>
-                                                                <p class="last-msg">Donec mattis augue a nisl
-                                                                    consequat, nec imperdiet ex rutrum. Fusce et
-                                                                    vehicula enim. Sed in enim eu odio vehic.</p>
-
-                                                                <span
-                                                                        class="font-size-12 font-weight-medium text-white">
-																		<i class="mdi mdi-clock-outline"></i> Just
-																		now...
-																	</span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="javscript:void(0)"
-                                                       class="media media-message media-notification">
-                                                        <div class="position-relative mr-3">
-                                                            <img class="rounded-circle" src="assets/img/user/u5.jpg"
-                                                                 alt="Image">
-                                                            <span class="status away"></span>
-                                                        </div>
-                                                        <div class="media-body d-flex justify-content-between">
-                                                            <div class="message-contents">
-                                                                <h4 class="title">Crinali</h4>
-                                                                <p class="last-msg">Lorem ipsum dolor sit, amet
-                                                                    consectetur adipisicing elit. Nam itaque
-                                                                    doloremque odio, eligendi delectus vitae.</p>
-
-                                                                <span
-                                                                        class="font-size-12 font-weight-medium text-secondary">
-																		<i class="mdi mdi-clock-outline"></i> 1 hrs
-																		ago...
-																	</span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="javscript:void(0)"
-                                                       class="media media-message media-notification event-active">
-
-                                                        <div
-                                                                class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-info text-white">
-                                                            <i class="mdi mdi-calendar-check font-size-20"></i>
-                                                        </div>
-
-                                                        <div class="media-body d-flex justify-content-between">
-                                                            <div class="message-contents">
-                                                                <h4 class="title">Upcomming event added</h4>
-                                                                <p class="last-msg font-size-14">03/Jan/2020 (1pm -
-                                                                    2pm)</p>
-
-                                                                <span
-                                                                        class="font-size-12 font-weight-medium text-secondary">
-																		<i class="mdi mdi-clock-outline"></i> 10 min
-																		ago...
-																	</span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="javscript:void(0)"
-                                                       class="media media-message media-notification">
-
-                                                        <div
-                                                                class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-warning text-white">
-                                                            <i class="mdi mdi-chart-areaspline font-size-20"></i>
-                                                        </div>
-
-                                                        <div class="media-body d-flex justify-content-between">
-                                                            <div class="message-contents">
-                                                                <h4 class="title">Yearly Sales report</h4>
-                                                                <p class="last-msg font-size-14">Lorem ipsum dolor
-                                                                    sit, amet consectetur adipisicing elit. Nam
-                                                                    itaque doloremque odio, eligendi delectus vitae.
-                                                                </p>
-
-                                                                <span
-                                                                        class="font-size-12 font-weight-medium text-secondary">
-																		<i class="mdi mdi-clock-outline"></i> 1 hrs
-																		ago...
-																	</span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="javscript:void(0)"
-                                                       class="media media-message media-notification">
-
-                                                        <div
-                                                                class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-primary text-white">
-                                                            <i
-                                                                    class="mdi mdi-account-multiple-check font-size-20"></i>
-                                                        </div>
-
-                                                        <div class="media-body d-flex justify-content-between">
-                                                            <div class="message-contents">
-                                                                <h4 class="title">New request</h4>
-                                                                <p class="last-msg font-size-14">Add Dany Jones as
-                                                                    your contact consequat nec imperdiet ex rutrum.
-                                                                    Fusce et vehicula enim. Sed in enim.</p>
-
-                                                                <span
-                                                                        class="my-1 btn btn-sm btn-success">Accept</span>
-                                                                <span
-                                                                        class="my-1 btn btn-sm btn-secondary">Delete</span>
-
-                                                                <span
-                                                                        class="font-size-12 font-weight-medium text-secondary d-block">
-																		<i class="mdi mdi-clock-outline"></i> 5 min
-																		ago...
-																	</span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="javscript:void(0)"
-                                                       class="media media-message media-notification">
-
-                                                        <div
-                                                                class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-danger text-white">
-                                                            <i class="mdi mdi-server-network-off font-size-20"></i>
-                                                        </div>
-
-                                                        <div class="media-body d-flex justify-content-between">
-                                                            <div class="message-contents">
-                                                                <h4 class="title">Server overloaded</h4>
-                                                                <p class="last-msg font-size-14">Donec mattis augue
-                                                                    a nisl consequat, nec imperdiet ex rutrum. Fusce
-                                                                    et vehicula enim. Sed in enim eu odio vehic.</p>
-
-                                                                <span
-                                                                        class="font-size-12 font-weight-medium text-secondary">
-																		<i class="mdi mdi-clock-outline"></i> 30 min
-																		ago...
-																	</span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="javscript:void(0)"
-                                                       class="media media-message media-notification">
-
-                                                        <div
-                                                                class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-purple text-white">
-                                                            <i class="mdi mdi-playlist-check font-size-20"></i>
-                                                        </div>
-
-                                                        <div class="media-body d-flex justify-content-between">
-                                                            <div class="message-contents">
-                                                                <h4 class="title">Task complete</h4>
-                                                                <p class="last-msg font-size-14">Nam ut nisi erat.
-                                                                    Ut quis tortor varius, hendrerit arcu quis,
-                                                                    congue nisl. In scelerisque, sem ut ve.</p>
-
-                                                                <span
-                                                                        class="font-size-12 font-weight-medium text-secondary">
-																		<i class="mdi mdi-clock-outline"></i> 2 hrs
-																		ago...
-																	</span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </li>
                         <li class="right-sidebar-in right-sidebar-2-menu">
                             <i class="mdi mdi-settings-outline mdi-spin"></i>

@@ -59,9 +59,16 @@
               <div class="caption">
                 <h4 class="product_name"><a
                         href="Product?id=<%=p.getId()%>"><%= p.getName()%></a></h4>
+                <% if(p.getPrice()==p.getPrice_buy()) { %>
                 <p class="price">
-                  <%= p.getPrice()%>&nbsp;VNĐ
+                  <span class="price-new"><%=p.getPrice_buy()%>&nbsp;VNĐ</span>
                 </p>
+                <% } else { %>
+                <p class="price">
+                  <span class="price-new"><%=p.getPrice_buy()%>&nbsp;VNĐ</span> <span
+                        class="price-old"><%=p.getPrice()%>&nbsp;VNĐ</span>
+                </p>
+                <% } %>
               </div>
             </div>
           </div>

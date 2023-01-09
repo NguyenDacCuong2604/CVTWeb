@@ -75,4 +75,19 @@ public class AccountDao
         }
         return name;
     }
+
+    public List<Account> getAccountWeek() throws SQLException, ClassNotFoundException {
+        List<Account> list = new ArrayList<Account>();
+        DataDB db = new DataDB();
+        PreparedStatement sta = db.getStatement("select * from account where week(date) = week(now())");
+        ResultSet rs = sta.executeQuery();
+        Account account;
+        while(rs.next()){
+            account = new Account(rs.getString("username"), rs.getString("password"), rs.getString("fullname"), rs.getString("phone"), rs.getInt("sex"), rs.getInt("newsletter"));
+            account.setEnable(rs.getInt("enabled"));
+            account.setDate(rs.getDate("date"));
+            list.add(account);
+        }
+        return list;
+    }
 }

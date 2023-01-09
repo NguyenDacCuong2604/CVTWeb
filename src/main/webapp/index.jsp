@@ -131,7 +131,7 @@
                     <div id="tabs" class="mahardhi-tabs">
                         <ul class="nav nav-tabs top-product-tab">
                             <li>
-                                <a href="#tab-featured" data-toggle="tab">Nổi bật nhất</a>
+                                <a href="#tab-featured" data-toggle="tab">Bán chạy nhất</a>
                             </li>
                         </ul>
                     </div>

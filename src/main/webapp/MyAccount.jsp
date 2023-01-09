@@ -41,10 +41,6 @@
           <p>Xem lịch sử đơn hàng</p>
         </a>
         <br>
-        <h1>BẢN TIN</h1>
-        <a href="">
-          <p>Đăng ký/hủy đăng ký nhận bản tin</p>
-        </a>
       </div>
     </div>
   </div>

@@ -12,7 +12,7 @@ public class Account
     private int newsletter;
     private int enable;
     private Date date;
-    
+    private int role;
     public Account(String username, String password, String fullName, String phoneNumber, int sex, int newsletter) {
         this.username = username;
         this.password = password;
@@ -20,6 +20,14 @@ public class Account
         this.phoneNumber = phoneNumber;
         this.sex = sex;
         this.newsletter = newsletter;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
     }
 
     public Date getDate() {

@@ -1,3 +1,4 @@
+<%@ page import="Entity.Product" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -39,7 +40,7 @@
     <div id="sidebar" class="sidebar ec-sidebar-footer">
 
       <div class="ec-brand">
-        <a href="index.html" title="CVT">
+        <a href="IndexAdmin" title="CVT">
           <img class="ec-brand-icon" src="assets/img/logoshop.png" alt="" />
           <span class="ec-brand-name text-truncate">CVT Shop</span>
         </a>
@@ -51,7 +52,7 @@
         <ul class="nav sidebar-inner" id="sidebar-menu">
           <!-- Dashboard -->
           <li>
-            <a class="sidenav-item-link" href="index.html">
+            <a class="sidenav-item-link" href="IndexAdmin">
               <i class="mdi mdi-view-dashboard-outline"></i>
               <span class="nav-text">Bảng điều khiển</span>
             </a>
@@ -66,7 +67,7 @@
             <div class="collapse">
               <ul class="sub-menu" id="users" data-parent="#sidebar-menu">
                 <li class="">
-                  <a class="sidenav-item-link" href="user-list.html">
+                  <a class="sidenav-item-link" href="AdminListUser">
                     <span class="nav-text">Danh sách khách hàng</span>
                   </a>
                 </li>
@@ -89,12 +90,12 @@
             <div class="collapse show">
               <ul class="sub-menu" id="products" data-parent="#sidebar-menu">
                 <li class="">
-                  <a class="sidenav-item-link" href="product-add.html">
+                  <a class="sidenav-item-link" href="AdminAddProduct.jsp">
                     <span class="nav-text">Thêm sản phẩm</span>
                   </a>
                 </li>
                 <li class="active">
-                  <a class="sidenav-item-link" href="product-list.html">
+                  <a class="sidenav-item-link" href="AdminListProduct">
                     <span class="nav-text">Danh sách sản phẩm</span>
                   </a>
                 </li>
@@ -116,8 +117,8 @@
             <div class="collapse">
               <ul class="sub-menu" id="orders" data-parent="#sidebar-menu">
                 <li class="">
-                  <a class="sidenav-item-link" href="new-order.html">
-                    <span class="nav-text">Đơn hàng mới</span>
+                  <a class="sidenav-item-link" href="AdminListOrder">
+                    <span class="nav-text">Danh sách đơn hàng</span>
                   </a>
                 </li>
                 <!-- <li class="">
@@ -146,13 +147,6 @@
               </a>
           </li> -->
           <!-- Reviews -->
-          <li>
-            <a class="sidenav-item-link" href="review-list.html">
-              <i class="mdi mdi-star-half"></i>
-              <span class="nav-text">Nhận xét</span>
-            </a>
-          </li>
-
           <!-- Other Pages -->
           <!-- <li class="has-sub">
               <a class="sidenav-item-link" href="javascript:void(0)">
@@ -174,7 +168,7 @@
 
   <!-- PAGE WRAPPER -->
   <div class="ec-page-wrapper">
-
+<% Product product = (Product) request.getAttribute("product"); %>
     <!-- Header -->
     <header class="ec-main-header" id="header">
       <nav class="navbar navbar-static-top navbar-expand-lg">
@@ -198,8 +192,8 @@
                 <li class="dropdown-header">
                   <img src="assets/img/user/user.png" class="img-circle" alt="User Image" />
                   <div class="d-inline-block">
-                    Admin CVT <small class="pt-1">
-                    <p>adminCVT@gmail.com</p>
+                    Admin <small class="pt-1">
+                    <p>admin@gmail.com</p>
                   </small>
                   </div>
                 </li>
@@ -207,240 +201,9 @@
                   <a href="javascript:0"> <i class="mdi mdi-settings-outline"></i> Cài đặt </a>
                 </li>
                 <li class="dropdown-footer">
-                  <a href="index.html"> <i class="mdi mdi-logout"></i> Đăng xuất </a>
+                  <a href="LogOut"> <i class="mdi mdi-logout"></i> Đăng xuất </a>
                 </li>
               </ul>
-            </li>
-            <li class="dropdown notifications-menu custom-dropdown">
-              <button class="dropdown-toggle notify-toggler custom-dropdown-toggler">
-                <i class="mdi mdi-bell-outline"></i>
-              </button>
-
-              <div class="card card-default dropdown-notify dropdown-menu-right mb-0">
-                <div class="card-header card-header-border-bottom px-3">
-                  <h2>Thông báo</h2>
-                </div>
-                <!-- noi dung thong bao -->
-                <div class="card-body px-0 py-0">
-                  <div class="tab-content" id="myNotifications">
-                    <div class="tab-pane fade show active" id="home2" role="tabpanel">
-                      <ul class="list-unstyled" data-simplebar style="height: 360px">
-                        <li>
-                          <a href="javscript:void(0)"
-                             class="media media-message media-notification">
-                            <div class="position-relative mr-3">
-                              <img class="rounded-circle" src="assets/img/user/u2.jpg"
-                                   alt="Image">
-                              <span class="status away"></span>
-                            </div>
-                            <div class="media-body d-flex justify-content-between">
-                              <div class="message-contents">
-                                <h4 class="title">Nitin</h4>
-                                <p class="last-msg">Lorem ipsum dolor sit, amet
-                                  consectetur adipisicing elit. Nam itaque
-                                  doloremque odio, eligendi delectus vitae.</p>
-
-                                <span
-                                        class="font-size-12 font-weight-medium text-secondary">
-																		<i class="mdi mdi-clock-outline"></i> 30 min
-																		ago...
-																	</span>
-                              </div>
-                            </div>
-                          </a>
-                        </li>
-
-                        <li>
-                          <a href="javscript:void(0)"
-                             class="media media-message media-notification media-active">
-                            <div class="position-relative mr-3">
-                              <img class="rounded-circle" src="assets/img/user/u1.jpg"
-                                   alt="Image">
-                              <span class="status active"></span>
-                            </div>
-                            <div class="media-body d-flex justify-content-between">
-                              <div class="message-contents">
-                                <h4 class="title">Lovina</h4>
-                                <p class="last-msg">Donec mattis augue a nisl
-                                  consequat, nec imperdiet ex rutrum. Fusce et
-                                  vehicula enim. Sed in enim eu odio vehic.</p>
-
-                                <span
-                                        class="font-size-12 font-weight-medium text-white">
-																		<i class="mdi mdi-clock-outline"></i> Just
-																		now...
-																	</span>
-                              </div>
-                            </div>
-                          </a>
-                        </li>
-
-                        <li>
-                          <a href="javscript:void(0)"
-                             class="media media-message media-notification">
-                            <div class="position-relative mr-3">
-                              <img class="rounded-circle" src="assets/img/user/u5.jpg"
-                                   alt="Image">
-                              <span class="status away"></span>
-                            </div>
-                            <div class="media-body d-flex justify-content-between">
-                              <div class="message-contents">
-                                <h4 class="title">Crinali</h4>
-                                <p class="last-msg">Lorem ipsum dolor sit, amet
-                                  consectetur adipisicing elit. Nam itaque
-                                  doloremque odio, eligendi delectus vitae.</p>
-
-                                <span
-                                        class="font-size-12 font-weight-medium text-secondary">
-																		<i class="mdi mdi-clock-outline"></i> 1 hrs
-																		ago...
-																	</span>
-                              </div>
-                            </div>
-                          </a>
-                        </li>
-
-                        <li>
-                          <a href="javscript:void(0)"
-                             class="media media-message media-notification event-active">
-
-                            <div
-                                    class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-info text-white">
-                              <i class="mdi mdi-calendar-check font-size-20"></i>
-                            </div>
-
-                            <div class="media-body d-flex justify-content-between">
-                              <div class="message-contents">
-                                <h4 class="title">Upcomming event added</h4>
-                                <p class="last-msg font-size-14">03/Jan/2020 (1pm -
-                                  2pm)</p>
-
-                                <span
-                                        class="font-size-12 font-weight-medium text-secondary">
-																		<i class="mdi mdi-clock-outline"></i> 10 min
-																		ago...
-																	</span>
-                              </div>
-                            </div>
-                          </a>
-                        </li>
-
-                        <li>
-                          <a href="javscript:void(0)"
-                             class="media media-message media-notification">
-
-                            <div
-                                    class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-warning text-white">
-                              <i class="mdi mdi-chart-areaspline font-size-20"></i>
-                            </div>
-
-                            <div class="media-body d-flex justify-content-between">
-                              <div class="message-contents">
-                                <h4 class="title">Yearly Sales report</h4>
-                                <p class="last-msg font-size-14">Lorem ipsum dolor
-                                  sit, amet consectetur adipisicing elit. Nam
-                                  itaque doloremque odio, eligendi delectus vitae.
-                                </p>
-
-                                <span
-                                        class="font-size-12 font-weight-medium text-secondary">
-																		<i class="mdi mdi-clock-outline"></i> 1 hrs
-																		ago...
-																	</span>
-                              </div>
-                            </div>
-                          </a>
-                        </li>
-
-                        <li>
-                          <a href="javscript:void(0)"
-                             class="media media-message media-notification">
-
-                            <div
-                                    class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-primary text-white">
-                              <i
-                                      class="mdi mdi-account-multiple-check font-size-20"></i>
-                            </div>
-
-                            <div class="media-body d-flex justify-content-between">
-                              <div class="message-contents">
-                                <h4 class="title">New request</h4>
-                                <p class="last-msg font-size-14">Add Dany Jones as
-                                  your contact consequat nec imperdiet ex rutrum.
-                                  Fusce et vehicula enim. Sed in enim.</p>
-
-                                <span
-                                        class="my-1 btn btn-sm btn-success">Accept</span>
-                                <span
-                                        class="my-1 btn btn-sm btn-secondary">Delete</span>
-
-                                <span
-                                        class="font-size-12 font-weight-medium text-secondary d-block">
-																		<i class="mdi mdi-clock-outline"></i> 5 min
-																		ago...
-																	</span>
-                              </div>
-                            </div>
-                          </a>
-                        </li>
-
-                        <li>
-                          <a href="javscript:void(0)"
-                             class="media media-message media-notification">
-
-                            <div
-                                    class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-danger text-white">
-                              <i class="mdi mdi-server-network-off font-size-20"></i>
-                            </div>
-
-                            <div class="media-body d-flex justify-content-between">
-                              <div class="message-contents">
-                                <h4 class="title">Server overloaded</h4>
-                                <p class="last-msg font-size-14">Donec mattis augue
-                                  a nisl consequat, nec imperdiet ex rutrum. Fusce
-                                  et vehicula enim. Sed in enim eu odio vehic.</p>
-
-                                <span
-                                        class="font-size-12 font-weight-medium text-secondary">
-																		<i class="mdi mdi-clock-outline"></i> 30 min
-																		ago...
-																	</span>
-                              </div>
-                            </div>
-                          </a>
-                        </li>
-
-                        <li>
-                          <a href="javscript:void(0)"
-                             class="media media-message media-notification">
-
-                            <div
-                                    class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-purple text-white">
-                              <i class="mdi mdi-playlist-check font-size-20"></i>
-                            </div>
-
-                            <div class="media-body d-flex justify-content-between">
-                              <div class="message-contents">
-                                <h4 class="title">Task complete</h4>
-                                <p class="last-msg font-size-14">Nam ut nisi erat.
-                                  Ut quis tortor varius, hendrerit arcu quis,
-                                  congue nisl. In scelerisque, sem ut ve.</p>
-
-                                <span
-                                        class="font-size-12 font-weight-medium text-secondary">
-																		<i class="mdi mdi-clock-outline"></i> 2 hrs
-																		ago...
-																	</span>
-                              </div>
-                            </div>
-                          </a>
-                        </li>
-
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </li>
             <li class="right-sidebar-in right-sidebar-2-menu">
               <i class="mdi mdi-settings-outline mdi-spin"></i>
@@ -456,7 +219,7 @@
         <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
           <div>
             <h1>Chỉnh sửa sản phẩm</h1>
-            <p class="breadcrumbs"><span><a href="index.html">Trang chủ</a></span>
+            <p class="breadcrumbs"><span><a href="AdminIndex?idpd=<%=product.getId()%>">Trang chủ</a></span>
               <span><i class="mdi mdi-chevron-right"></i></span>Chỉnh sửa sản phẩm
             </p>
           </div>
@@ -469,55 +232,30 @@
               </div>
 
               <div class="card-body product-detail">
+                <form action="AdminUpdateProduct?idpd=<%=product.getId()%>" method="post">
                 <div class="row">
                   <div class="col-xl-4 col-lg-6">
                     <div class="row">
                       <div class="single-pro-img">
                         <div class="single-product-scroll">
                           <div class="single-product-cover">
+                            <% for(String link : product.getImages()) { %>
                             <div class="single-slide zoom-image-hover">
-                              <img class="img-responsive"
-                                   src="../../../../Imageweb/thatlungnam/thatlungdabo_caocap/Dây nịt nam da bò cao cấp hiệu Jeep J66DL nâu/J66DL.jpg"
+                              <img style="max-width: 371px; max-height: 371px;" class="img-responsive"
+                                   src="<%=link%>"
                                    alt="">
                             </div>
-                            <div class="single-slide zoom-image-hover">
-                              <img class="img-responsive"
-                                   src="../../../../Imageweb/thatlungnam/thatlungdabo_caocap/Dây nịt nam da bò cao cấp hiệu Jeep J66DL nâu/J66DL_3.jpg"
-                                   alt="">
-                            </div>
-                            <div class="single-slide zoom-image-hover">
-                              <img class="img-responsive"
-                                   src="../../../../Imageweb/thatlungnam/thatlungdabo_caocap/Dây nịt nam da bò cao cấp hiệu Jeep J66DL nâu/J66DL_nau.jpg"
-                                   alt="">
-                            </div>
-                            <div class="single-slide zoom-image-hover">
-                              <img class="img-responsive"
-                                   src="../../../../Imageweb/thatlungnam/thatlungdabo_caocap/Dây nịt nam da bò cao cấp hiệu Jeep J66DL nâu/J66DL_4.jpg"
-                                   alt="">
-                            </div>
+                            <% } %>
                           </div>
-                          <div class="single-nav-thumb">
-                            <div class="single-slide">
-                              <img class="img-responsive"
-                                   src="../../../../Imageweb/thatlungnam/thatlungdabo_caocap/Dây nịt nam da bò cao cấp hiệu Jeep J66DL nâu/J66DL.jpg"
-                                   alt="">
-                            </div>
-                            <div class="single-slide">
-                              <img class="img-responsive"
-                                   src="../../../../Imageweb/thatlungnam/thatlungdabo_caocap/Dây nịt nam da bò cao cấp hiệu Jeep J66DL nâu/J66DL_3.jpg"
-                                   alt="">
-                            </div>
-                            <div class="single-slide">
-                              <img class="img-responsive"
-                                   src="../../../../Imageweb/thatlungnam/thatlungdabo_caocap/Dây nịt nam da bò cao cấp hiệu Jeep J66DL nâu/J66DL_nau.jpg"
-                                   alt="">
-                            </div>
-                            <div class="single-slide">
-                              <img class="img-responsive"
-                                   src="../../../../Imageweb/thatlungnam/thatlungdabo_caocap/Dây nịt nam da bò cao cấp hiệu Jeep J66DL nâu/J66DL_4.jpg"
-                                   alt="">
-                            </div>
+                        <div class="single-nav-thumb">
+                          <% for(String linkI : product.getImages()){ %>
+                          <div class="single-slide">
+                            <img style="max-width: 72px; max-height: 48px;" class="img-responsive"
+                                 src="<%=linkI%>"
+                                 alt="">
                           </div>
+                          <% } %>
+                        </div>
                         </div>
                       </div>
                     </div>
@@ -526,80 +264,62 @@
                     <div class="row product-overview">
                       <div class="col-12">
                         <Label class="product-title">Tên sản phẩm
-                          <input type="text" class="form-control"
-                                 value="Dây nịt nam da bò cao cấp hiệu Jeep J66DL
-																	nâu">
+                          <input type="text" class="form-control" name="nameproduct"
+                                 value="<%=product.getName()%>" required>
                         </Label>
-                        <Label class="product-sku">Mã sản phẩm
-                          <input type="text" class="form-control"
-                                 value="J66DL">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <Label class="product-sku">Mã sản phẩm: <label class="form-control"><%=product.getId()%></label>
+
                         </Label>
                         <Label class="product-sku">Thương hiệu
-                          <input type="text" class="form-control"
-                                 value="Jeep">
+                          <input type="text" class="form-control" name="brand"
+                                 value="<%=product.getBrand()%>" required>
                         </Label>
+                        <span class="text-uppercase">Loại sản phẩm</span>
+                        <select name="category" id="lang-select">
+                          <% if(product.getCategory()==1) { %>
+                          <option value="1" selected>Thắt lưng nam</option>
+                          <option value="2">Mặt thắt lưng</option>
+                          <option value="3">Dây thắt lưng</option>
+                          <% }else if(product.getCategory()==2) { %>
+                          <option value="1" >Thắt lưng nam</option>
+                          <option value="2" selected>Mặt thắt lưng</option>
+                          <option value="3">Dây thắt lưng</option>
+                          <% } else { %>
+                          <option value="1" >Thắt lưng nam</option>
+                          <option value="2">Mặt thắt lưng</option>
+                          <option value="3" selected>Dây thắt lưng</option>
+                          <% } %>
+                        </select>
                         <br>
                         <Label class="product-prict">Giá
-                          <input type="text" class="form-control"
-                                 value="550.000đ">
+                          <input type="text" class="form-control" name="price"
+                                 value="<%=product.getPrice()%>" required>VNĐ
                         </Label>
                         <br>
                         <Label class="product-sku">Giá bán
-                          <input type="text" class="form-control"
-                                 value="550.000đ">
+                          <input type="text" class="form-control" name="pricebuy"
+                                 value="<%=product.getPrice_buy()%>" required>VNĐ
                         </Label>
                         <br>
                         <Label class="product-stock">Số lượng
-                          <input type="number" class="form-control"
-                                 value="8">
+                          <input type="number" class="form-control" name="quantity"
+                                 value="<%=product.getQuantity()%>" required>
                         </Label>
+                        <label class="product-detail">Chi tiết
+                        <input type="text" class="form-control" name="detail"
+                               value="<%=product.getDetail()%>" required>
+                        </label>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="row review-rating mt-4">
-                  <div class="col-12">
-                    <ul class="nav nav-tabs" id="myRatingTab" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link active" id="product-detail-tab"
-                           data-bs-toggle="tab" data-bs-target="#productdetail"
-                           href="#productdetail" role="tab" aria-selected="true">
-                          <i class="mdi mdi-library-books mr-1"></i> Mô tả</a>
-                      </li>
-                    </ul>
-                    <div class="tab-content" id="myTabContent2">
-                      <div class="tab-pane pt-3 fade show active" id="productdetail"
-                           role="tabpanel">
-													<textarea class="form-control" rows="4">Với nam giới, dây lưng JEEP là phụ kiện được cánh mày râu săn đón bởi đơn giản.Khi nhắc đến JEEP là người ta nghĩ ngay đến. Với các chàng trai văn phòng lịch lãm thì các kiểu dây lưng đen với mặt dây sáng luôn là lựa chọn an toàn và phù hợp hơn cả. CVT Shop xin giới thiệu đến quý khách hàng mẫu dây nịt nam da bò hiệu Jeep J66DL - sự lựa chọn hoàn hảo cho các chàng trai lịch lãm.
-
-																	Ưu điểm nổi bật nhất của sản phẩm chính là dây được làm từ da bò
-																		nhập khẩu cao cấp,
-																		bề mặt da mềm mịn, nổi rõ các đường vân tự nhiên, khó bị nứt hay
-																		trầy xước bề mặt
-																		sau một thời gian sử dụng, càng dùng lâu, da càng mềm và đanh
-																		chắc hơn. Chúng tôi
-																		luôn tự tin và bảo hành sản phẩm trọn đời cho quý khách hàng khi
-																		sử dụng.
-																	Với phụ kiện thời trang này, các bạn nam có thể kết hợp với nhiều
-																		loại quần khác nhau
-																		như quần tây, quần kaki…để mang đến phong cách lịch lãm khi đi
-																		làm hay trẻ trung lúc
-																		dạo phố, đi chơi nhé.
-
-																		Sản phẩm được tặng kèm hộp đựng và túi xách sang trọng nên rất
-																		phù hợp khi làm quà
-																		tặng người thân, bạn bè, đối tác.
-													</textarea>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="d-flex justify-content-end mt-5">
-                    <button type="submit"
-                            class="btn btn-primary mb-2 btn-pill">Cập nhật sản phẩm</button>
-                  </div>
+                <div class="d-flex justify-content-end mt-5">
+                  <button type="submit"
+                          class="btn btn-primary mb-2 btn-pill">Cập nhật sản phẩm</button>
                 </div>
-
+                </form>
               </div>
 
             </div>
@@ -619,7 +339,7 @@
 
     </div> <!-- End Page Wrapper -->
   </div> <!-- End Wrapper -->
-
+</div>
   <!-- Common Javascript -->
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script src="assets/plugins/jquery/jquery-3.5.1.min.js"></script>

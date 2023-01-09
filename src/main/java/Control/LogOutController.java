@@ -17,6 +17,7 @@ public class LogOutController extends HttpServlet
         throws ServletException, IOException
     {
         HttpSession session = request.getSession();
+        session.removeAttribute("admin");
         session.removeAttribute("account");
         session.removeAttribute("cart");
         request.getRequestDispatcher("index.jsp").forward(request, response);

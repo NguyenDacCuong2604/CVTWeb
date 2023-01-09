@@ -72,6 +72,19 @@ public class ProductDao
         }
         return list;
     }
+    public void updateProduct(String id, String name, String brand, int category, int price, int pricebuy, int quantity, String detail) throws SQLException, ClassNotFoundException {
+        DataDB db = new DataDB();
+        PreparedStatement sta = db.getStatement("update product set name =?, brand =?,category = ?, price=?, price_buy = ?, quantity =?, detail =? where id_product = ?");
+        sta.setString(1, name);
+        sta.setString(2, brand);
+        sta.setInt(3, category);
+        sta.setInt(4, price);
+        sta.setInt(5, pricebuy);
+        sta.setInt(6, quantity);
+        sta.setString(7, detail);
+        sta.setString(8, id);
+        sta.executeUpdate();
+    }
     public List<Product> getProductsBestSeller(int n) throws SQLException, ClassNotFoundException {
         List<Product> list = new ArrayList<Product>();
         DataDB db = new DataDB();

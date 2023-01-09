@@ -92,19 +92,6 @@
             </div>
           </div>
         </fieldset>
-        <fieldset>
-          <legend>Bản tin</legend>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Nhận thông tin</label>
-            <div class="col-sm-10"> <label class="radio-inline">
-              <input type="radio" name="newsletter" value="1" />
-              Có</label>
-              <label class="radio-inline">
-                <input type="radio" name="newsletter" value="0" checked="checked" />
-                Không</label>
-            </div>
-          </div>
-        </fieldset>
         <div class="buttons">
           <div class="pull-right">Tôi đã đọc và đồng ý với <a
                   href="privacypolicy.html"
