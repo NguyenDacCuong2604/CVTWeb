@@ -278,17 +278,17 @@
                         <span class="text-uppercase">Loại sản phẩm</span>
                         <select name="category" id="lang-select">
                           <% if(product.getCategory()==1) { %>
-                          <option value="1" selected>Thắt lưng nam</option>
+                          <option value="3" selected>Thắt lưng nam</option>
                           <option value="2">Mặt thắt lưng</option>
-                          <option value="3">Dây thắt lưng</option>
+                          <option value="1">Dây thắt lưng</option>
                           <% }else if(product.getCategory()==2) { %>
-                          <option value="1" >Thắt lưng nam</option>
+                          <option value="3" >Thắt lưng nam</option>
                           <option value="2" selected>Mặt thắt lưng</option>
-                          <option value="3">Dây thắt lưng</option>
+                          <option value="1">Dây thắt lưng</option>
                           <% } else { %>
-                          <option value="1" >Thắt lưng nam</option>
+                          <option value="3" >Thắt lưng nam</option>
                           <option value="2">Mặt thắt lưng</option>
-                          <option value="3" selected>Dây thắt lưng</option>
+                          <option value="1" selected>Dây thắt lưng</option>
                           <% } %>
                         </select>
                         <br>

@@ -47,38 +47,7 @@
     </div>
     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 contact-right">
       <!-- mẫu liên hệ -->
-      <form action="/ContactController"
-            method="post" enctype="multipart/form-data" class="form-horizontal">
-        <fieldset>
-          <h2>Mẫu liên hệ</h2>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-name">Tên của bạn</label>
-            <div class="col-sm-10">
-              <input type="text" name="name" value="" id="input-name" class="form-control" />
-            </div>
-          </div>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-email">Địa chỉ Email</label>
-            <div class="col-sm-10">
-              <input type="text" name="email" value="" id="input-email"
-                     class="form-control" />
-            </div>
-          </div>
-          <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-enquiry">Phản hồi</label>
-            <div class="col-sm-10">
-										<textarea name="enquiry" rows="10" id="input-enquiry"
-                                                  class="form-control"></textarea>
-            </div>
-          </div>
-
-        </fieldset>
-        <div class="buttons clearfix">
-          <div class="pull-right">
-            <input class="btn btn-primary" type="submit" value="Gửi đi" />
-          </div>
-        </div>
-      </form>
+      <p>Hãy gửi yêu cầu, thắc mắc, hoặc muốn liên hệ với shop. Vui lòng gửi mail vào địa chỉ: nguyendaccuong2002@gmail.com</p>
     </div>
   </div>
 </div>
